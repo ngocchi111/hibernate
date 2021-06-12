@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="sv18120010.hibernate.AccountStudent" table="account_student" schema="quanlysinhvien">
+        <id name="idAccount">
+            <column name="idAccount" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="username">
+            <column name="username" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="state">
+            <column name="state" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.AccountTeacher" table="account_teacher" schema="quanlysinhvien">
+        <id name="idAccount">
+            <column name="idAccount" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="username">
+            <column name="username" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="state">
+            <column name="state" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.Classroom" table="classroom" schema="quanlysinhvien">
+        <id name="idClassroom">
+            <column name="idClassroom" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="limit">
+            <column name="limit" sql-type="int" not-null="true"/>
+        </property>
+        <property name="boy">
+            <column name="boy" sql-type="int" not-null="true"/>
+        </property>
+        <property name="girl">
+            <column name="girl" sql-type="int" not-null="true"/>
+        </property>
+        <property name="state">
+            <column name="state" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.Course" table="course" schema="quanlysinhvien">
+        <id name="idCourse">
+            <column name="idCourse" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="idSubject">
+            <column name="idSubject" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="idTeacher">
+            <column name="idTeacher" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="idClassroom">
+            <column name="idClassroom" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="day">
+            <column name="day" sql-type="int" not-null="true"/>
+        </property>
+        <property name="time">
+            <column name="time" sql-type="int" not-null="true"/>
+        </property>
+        <property name="state">
+            <column name="state" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.DKHP" table="dkhp" schema="quanlysinhvien">
+        <id name="idDkhp">
+            <column name="idDKHP" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="idStudent">
+            <column name="idStudent" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="idCourse">
+            <column name="idCourse" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="idSemester">
+            <column name="idSemester" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.Dkhpsesion" table="dkhpsesion" schema="quanlysinhvien">
+        <id name="idDkhPsesion">
+            <column name="idDKHPsesion" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="timeStart">
+            <column name="timeStart" sql-type="date" not-null="true"/>
+        </property>
+        <property name="timeEnd">
+            <column name="timeEnd" sql-type="date" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.Semester" table="semester" schema="quanlysinhvien">
+        <id name="idSemester">
+            <column name="idSemester" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="timeStart">
+            <column name="timeStart" sql-type="date" not-null="true"/>
+        </property>
+        <property name="timeEnd">
+            <column name="timeEnd" sql-type="date" not-null="true"/>
+        </property>
+        <property name="nameSemester">
+            <column name="nameSemester" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="yearStudy">
+            <column name="yearStudy" sql-type="year" not-null="true"/>
+        </property>
+        <property name="state">
+            <column name="state" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.Student" table="student" schema="quanlysinhvien">
+        <id name="idStudent">
+            <column name="idStudent" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="idclass">
+            <column name="idclass" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="faculty">
+            <column name="faculty" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="birthday">
+            <column name="birthday" sql-type="date" not-null="true"/>
+        </property>
+        <property name="schoolYear">
+            <column name="schoolYear" sql-type="int" not-null="true"/>
+        </property>
+        <property name="phone">
+            <column name="phone" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.Subject" table="subject" schema="quanlysinhvien">
+        <id name="idSubject">
+            <column name="idSubject" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="timeStudy">
+            <column name="timeStudy" sql-type="int" not-null="true"/>
+        </property>
+        <property name="state">
+            <column name="state" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+
+    <class name="sv18120010.hibernate.Teacher" table="teacher" schema="quanlysinhvien">
+        <id name="idTeacher">
+            <column name="idTeacher" sql-type="varchar(10)" length="10"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="birthday">
+            <column name="birthday" sql-type="date" not-null="true"/>
+        </property>
+        <property name="faculty">
+            <column name="faculty" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="phone">
+            <column name="phone" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
